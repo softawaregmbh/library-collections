@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>netstandard1.0;net4;net45;net46</TargetFrameworks>
+    <Version>1.1.0</Version>
+    <PackageId>softaware.Collections</PackageId>
+    <Authors>softaware GmbH</Authors>
+    <Description></Description>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageReleaseNotes>Update to netstandard</PackageReleaseNotes>
+    <Copyright>Copyright 2017 (c) softaware GmbH. All rights reserved.</Copyright>
+    <PackageTags>collection collections softaware</PackageTags>
+  </PropertyGroup>
+</Project>
