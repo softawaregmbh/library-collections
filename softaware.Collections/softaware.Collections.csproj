@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>netstandard1.0;net4;net45;net46</TargetFrameworks>
+    <TargetFrameworks>netstandard1.0;net45;net46;net461;net47</TargetFrameworks>
     <Version>1.1.0</Version>
     <PackageId>softaware.Collections</PackageId>
     <Authors>softaware GmbH</Authors>
