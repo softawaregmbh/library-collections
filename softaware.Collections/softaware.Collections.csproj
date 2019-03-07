@@ -1,13 +1,19 @@
 <Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <TargetFrameworks>netstandard1.0;net45;net46;net461;net47</TargetFrameworks>
-    <Version>1.1.0</Version>
-    <PackageId>softaware.Collections</PackageId>
-    <Authors>softaware GmbH</Authors>
-    <Description></Description>
-    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <PackageReleaseNotes>Update to netstandard</PackageReleaseNotes>
-    <Copyright>Copyright 2017 (c) softaware GmbH. All rights reserved.</Copyright>
-    <PackageTags>collection collections softaware</PackageTags>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Version>2.0.0</Version>
+    <Authors>softaware gmbh</Authors>
+    <Description>New collections and extension methods for existing interfaces like IEnumerable&lt;T&gt; and ICollection&lt;T&gt;</Description>
+    <Copyright>softaware gmbh</Copyright>
+    <PackageProjectUrl>https://github.com/softawaregmbh/library-collections</PackageProjectUrl>
+    <PackageIconUrl>https://secure.gravatar.com/avatar/d441f5a5514d2afce7da518a89f028d0?s=512&amp;amp;amp;amp;amp;r=g&amp;amp;amp;amp;amp;d=retro</PackageIconUrl>
+    <RepositoryUrl>https://github.com/softawaregmbh/library-collections</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>softaware collection collections IEnumerable enumerable extensions</PackageTags>
+    <PackageReleaseNotes>Upgraded to .NET Standard 2.0
+Added MinBy(OrDefault), MaxBy(OrDefault), SetMerge</PackageReleaseNotes>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
+
 </Project>

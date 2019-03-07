@@ -50,19 +50,13 @@ namespace softaware.Collections
 
             private void OnCollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
             {
-                if (this.before != null)
-                {
-                    this.before();
-                }
+                this.before?.Invoke();
 
                 if (e.OldItems != null)
                 {
                     foreach (T item in e.OldItems)
                     {
-                        if (this.removedItems != null)
-                        {
-                            this.removedItems(item);
-                        }
+                        this.removedItems?.Invoke(item);
                     }
                 }
 
@@ -70,17 +64,11 @@ namespace softaware.Collections
                 {
                     foreach (T item in e.NewItems)
                     {
-                        if (this.addedItems != null)
-                        {
-                            this.addedItems(item);
-                        }
+                        this.addedItems?.Invoke(item);
                     }
                 }
 
-                if (this.after != null)
-                {
-                    this.after();
-                }
+                this.after?.Invoke();
             }
         }
     }

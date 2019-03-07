@@ -10,11 +10,7 @@ namespace softaware.Collections
     /// <typeparam name="TValue">The value type.</typeparam>
     public class MultiDictionary<TKey, TValue> : 
         Dictionary<TKey, ICollection<TValue>>,
-#if NET40
-        IEnumerable<KeyValuePair<TKey, IEnumerable<TValue>>>
-#else
-        IReadOnlyMultiDictionary<TKey, TValue> 
-#endif
+        IReadOnlyMultiDictionary<TKey, TValue>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="MultiDictionary{TKey, TValue}"/> class.
@@ -35,7 +31,6 @@ namespace softaware.Collections
             }
         }
 
-#if !NET40
         /// <summary>
         /// Gets a collection containing the keys in the <see cref="T:System.Collections.Generic.Dictionary`2" />.
         /// </summary>
@@ -63,7 +58,6 @@ namespace softaware.Collections
         {
             get { return this[key]; }
         }
-#endif
 
         /// <summary>
         /// Gets the value that is associated with the specified key.
