@@ -1,19 +1,30 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>2.0.0</Version>
+    <Version>2.0.1</Version>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <Authors>softaware gmbh</Authors>
+    <Company>softaware gmbh</Company>
+    <PackageIcon>icon.png</PackageIcon>
     <Description>New collections and extension methods for existing interfaces like IEnumerable&lt;T&gt; and ICollection&lt;T&gt;</Description>
-    <Copyright>softaware gmbh</Copyright>
-    <PackageProjectUrl>https://github.com/softawaregmbh/library-collections</PackageProjectUrl>
-    <PackageIconUrl>https://secure.gravatar.com/avatar/d441f5a5514d2afce7da518a89f028d0?s=512&amp;amp;amp;amp;amp;r=g&amp;amp;amp;amp;amp;d=retro</PackageIconUrl>
-    <RepositoryUrl>https://github.com/softawaregmbh/library-collections</RepositoryUrl>
+    <Copyright>Copyright 2019</Copyright>
     <RepositoryType>git</RepositoryType>
+    <PackageProjectUrl>https://github.com/softawaregmbh/library-viewport</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/softawaregmbh/library-viewport</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageId>softaware.Collections</PackageId>
     <PackageTags>softaware collection collections IEnumerable enumerable extensions</PackageTags>
     <PackageReleaseNotes>Upgraded to .NET Standard 2.0
-Added MinBy(OrDefault), MaxBy(OrDefault), SetMerge</PackageReleaseNotes>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+Added MinBy(OrDefault), MaxBy(OrDefault), SetMerge</PackageReleaseNotes>    
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\icon.png" Pack="true" PackagePath="\"/>
+  </ItemGroup>
 
 </Project>

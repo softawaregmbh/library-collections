@@ -1,3 +1,3 @@
 # softaware.Collections
 
-Additional collections and extension methods for IEnumerable.
+New collections and extension methods for existing interfaces like IEnumerable<T> and ICollection<T>

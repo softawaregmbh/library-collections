@@ -75,7 +75,7 @@ namespace softaware.Collections
         /// </summary>
         /// <typeparam name="TElement">The element type.</typeparam>
         /// <typeparam name="TResult">The result type.</typeparam>
-        /// <param name="elements">The elements</param>
+        /// <param name="elements">The elements.</param>
         /// <param name="selector">The asynchronous function that is applied to all elements.</param>
         /// <returns>A task that completes when all asynchronous functions are completed. Its result is an array of their results.</returns>
         public static Task<TResult[]> SelectAsync<TElement, TResult>(this IEnumerable<TElement> elements, Func<TElement, Task<TResult>> selector)
