@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>2.0.2</Version>
+    <Version>2.0.3</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <Authors>softaware gmbh</Authors>
@@ -11,13 +11,12 @@
     <Description>New collections and extension methods for existing interfaces like IEnumerable&lt;T&gt; and ICollection&lt;T&gt;</Description>
     <Copyright>Copyright 2019</Copyright>
     <RepositoryType>git</RepositoryType>
-    <PackageProjectUrl>https://github.com/softawaregmbh/library-viewport</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/softawaregmbh/library-viewport</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/softawaregmbh/library-collections</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/softawaregmbh/library-collections</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageId>softaware.Collections</PackageId>
     <PackageTags>softaware collection collections IEnumerable enumerable extensions</PackageTags>
-    <PackageReleaseNotes>Upgraded to .NET Standard 2.0
-Added MinBy(OrDefault), MaxBy(OrDefault), SetMerge</PackageReleaseNotes>    
+    <PackageReleaseNotes>Fixed project and repository URLs.</PackageReleaseNotes>    
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
