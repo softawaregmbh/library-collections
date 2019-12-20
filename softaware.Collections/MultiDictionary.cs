@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
 namespace softaware.Collections
@@ -11,6 +12,9 @@ namespace softaware.Collections
     public class MultiDictionary<TKey, TValue> : 
         Dictionary<TKey, ICollection<TValue>>,
         IReadOnlyMultiDictionary<TKey, TValue>
+#if !NETSTANDARD2_0
+        where TKey : notnull
+#endif
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="MultiDictionary{TKey, TValue}"/> class.
@@ -67,11 +71,16 @@ namespace softaware.Collections
         /// <returns>
         /// true if the object that implements the <see cref="T:System.Collections.Generic.IReadOnlyDictionary`2" /> interface contains an element that has the specified key; otherwise, false.
         /// </returns>
-        public bool TryGetValue(TKey key, out IEnumerable<TValue> value)
+        public bool TryGetValue(
+            TKey key,
+            #if !NETSTANDARD2_0
+            [MaybeNullWhen(false)]
+            #endif
+            out IEnumerable<TValue> value)
         {
-            ICollection<TValue> collection;
+            ICollection<TValue>? collection;
             bool result = this.TryGetValue(key, out collection);
-            value = collection;
+            value = collection!;
             return result;
         }
 

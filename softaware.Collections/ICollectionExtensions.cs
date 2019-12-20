@@ -25,9 +25,8 @@ namespace softaware.Collections
         /// <param name="collection">The collection.</param>
         /// <param name="items">The items.</param>
         public static void AddRange<T>(this ICollection<T> collection, IEnumerable<T> items)
-        {
-            var list = collection as List<T>;
-            if (list != null)
+        {            
+            if (collection is List<T> list)
             {
                 list.AddRange(items);
             }
@@ -59,9 +58,16 @@ namespace softaware.Collections
         /// <param name="items">The items.</param>
         public static void RemoveRange<T>(this ICollection<T> collection, IEnumerable<T> items)
         {
-            foreach (var item in items)
+            if (collection is List<T> list)
             {
-                collection.Remove(item);
+                list.RemoveRange(items);
+            }
+            else
+            {
+                foreach (var item in items)
+                {
+                    collection.Remove(item);
+                }
             }
         }
     }

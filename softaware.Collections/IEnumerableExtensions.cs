@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -47,7 +48,10 @@ namespace softaware.Collections
         public static MultiDictionary<TKey, TValue> ToMultiDictionary<TElement, TKey, TValue>(
             this IEnumerable<TElement> elements, 
             Func<TElement, TKey> keySelector, 
-            Func<TElement, IEnumerable<TValue>> valuesSelector) 
+            Func<TElement, IEnumerable<TValue>> valuesSelector)
+            #if !NETSTANDARD2_0
+            where TKey : notnull
+            #endif
         {
             var dictionary = new MultiDictionary<TKey, TValue>();
             foreach (var element in elements)
@@ -55,7 +59,7 @@ namespace softaware.Collections
                 var key = keySelector(element);
                 var values = valuesSelector(element);
 
-                ICollection<TValue> collection;
+                ICollection<TValue>? collection;
                 if (!dictionary.TryGetValue(key, out collection))
                 {
                     collection = values.ToList();
@@ -104,6 +108,9 @@ namespace softaware.Collections
         /// <param name="elements">The elements.</param>
         /// <param name="selector">The transform function.</param>
         /// <returns>The smallest element.</returns>
+        #if !NETSTANDARD2_0
+        [return: MaybeNull]
+        #endif
         public static TElement MinByOrDefault<TElement, TComparison>(this IEnumerable<TElement> elements, Func<TElement, TComparison> selector)
         {
             return MinMaxBy(elements, selector, max: false, throwWhenEmpty: false);
@@ -130,11 +137,17 @@ namespace softaware.Collections
         /// <param name="elements">The elements.</param>
         /// <param name="selector">The transform function.</param>
         /// <returns>The largest element.</returns>
+        #if !NETSTANDARD2_0
+        [return: MaybeNull]
+        #endif
         public static TElement MaxByOrDefault<TElement, TComparison>(this IEnumerable<TElement> elements, Func<TElement, TComparison> selector)
         {
             return MinMaxBy(elements, selector, max: true, throwWhenEmpty: false);
         }
 
+        #if !NETSTANDARD2_0
+        [return: MaybeNull]
+        #endif
         private static TElement MinMaxBy<TElement, TComparison>(this IEnumerable<TElement> elements, Func<TElement, TComparison> selector, bool max, bool throwWhenEmpty)
         {
             var enumerator = elements.GetEnumerator();
@@ -146,7 +159,7 @@ namespace softaware.Collections
                 }
                 else
                 {
-                    return default;
+                    return default!;
                 }
             }
 

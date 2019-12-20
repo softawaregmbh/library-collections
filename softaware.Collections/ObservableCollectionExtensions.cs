@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 
 namespace softaware.Collections
 {
@@ -19,7 +20,12 @@ namespace softaware.Collections
         /// <param name="before">An action that is called once per change before <paramref name="removed"/> or <paramref name="added"/> are called for every element.</param>
         /// <param name="after">An action that is called once per change after <paramref name="removed"/> or <paramref name="added"/> were called for every element.</param>
         /// <returns>An IDisposable, whose Dispose method deregisters the event handler.</returns>
-        public static IDisposable HandleChanges<T>(this ObservableCollection<T> collection, Action<T> removed = null, Action<T> added = null, Action before = null, Action after = null)
+        public static IDisposable HandleChanges<T>(
+            this ObservableCollection<T> collection, 
+            Action<T>? removed = null, 
+            Action<T>? added = null, 
+            Action? before = null, 
+            Action? after = null)
         {
             return new CollectionChangedHandler<T>(collection, removed, added, before, after);
         }
@@ -27,12 +33,17 @@ namespace softaware.Collections
         private class CollectionChangedHandler<T> : IDisposable
         {
             private ObservableCollection<T> collection;
-            private Action<T> removedItems;
-            private Action<T> addedItems;
-            private Action before;
-            private Action after;
+            private Action<T>? removedItems;
+            private Action<T>? addedItems;
+            private Action? before;
+            private Action? after;
 
-            public CollectionChangedHandler(ObservableCollection<T> collection, Action<T> removedItems, Action<T> addedItems, Action before, Action after)
+            public CollectionChangedHandler(
+                ObservableCollection<T> collection, 
+                Action<T>? removedItems, 
+                Action<T>? addedItems, 
+                Action? before,
+                Action? after)
             {
                 this.collection = collection;
                 this.removedItems = removedItems;
@@ -48,23 +59,23 @@ namespace softaware.Collections
                 this.collection.CollectionChanged -= this.OnCollectionChanged;
             }
 
-            private void OnCollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+            private void OnCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
             {
                 this.before?.Invoke();
 
                 if (e.OldItems != null)
                 {
-                    foreach (T item in e.OldItems)
+                    foreach (var item in e.OldItems)
                     {
-                        this.removedItems?.Invoke(item);
+                        this.removedItems?.Invoke((T)item!);
                     }
                 }
 
                 if (e.NewItems != null)
                 {
-                    foreach (T item in e.NewItems)
+                    foreach (var item in e.NewItems)
                     {
-                        this.addedItems?.Invoke(item);
+                        this.addedItems?.Invoke((T)item!);
                     }
                 }
 
