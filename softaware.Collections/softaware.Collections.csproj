@@ -4,7 +4,7 @@
     <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
     <LangVersion>8.0</LangVersion>
     <Nullable>enable</Nullable>
-    <Version>3.0.0</Version>
+    <Version>3.0.1</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <Authors>softaware gmbh</Authors>
@@ -18,7 +18,7 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageId>softaware.Collections</PackageId>
     <PackageTags>softaware collection collections IEnumerable enumerable extensions</PackageTags>
-    <PackageReleaseNotes>Added .NET Standard 2.1 target with support for nullable reference types.</PackageReleaseNotes>    
+    <PackageReleaseNotes>Fixed bug in RemoveRange.</PackageReleaseNotes>    
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>

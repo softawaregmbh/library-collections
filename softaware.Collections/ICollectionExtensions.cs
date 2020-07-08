@@ -58,16 +58,9 @@ namespace softaware.Collections
         /// <param name="items">The items.</param>
         public static void RemoveRange<T>(this ICollection<T> collection, IEnumerable<T> items)
         {
-            if (collection is List<T> list)
+            foreach (var item in items)
             {
-                list.RemoveRange(items);
-            }
-            else
-            {
-                foreach (var item in items)
-                {
-                    collection.Remove(item);
-                }
+                collection.Remove(item);
             }
         }
     }
